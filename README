@@ -1,0 +1,21 @@
+Easily create multiple custom components for Buddypress using buddypress-custom-posts (http://code.google.com/p/buddypress-custom-posts/)
+
+Copy the plugin folder to your Wordpress plugins directory and activate it in the Wordpress admin area. After that, you can easily make new Buddypress components by creating classes that extend the BP_Components class.
+
+For example:
+
+class MyComponent extends BP_Components {
+	var $name = 'Components';
+	var $singular = 'Component';
+	var $post_type = 'my_components';
+
+	function check_new_item () {
+		//handle creation of new posts...
+	}
+
+	function return_form () {
+		//output a form for users to supply data for new posts 
+	}
+}
+
+You MUST declare $name, $singular, $post_type, and check_new_item(). return_form() is just for example purposes and can be printed anywhere in your templates by calling MyComponent::return_form().
